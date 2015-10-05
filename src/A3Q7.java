@@ -15,26 +15,28 @@ public class A3Q7 {
      */
     public static void main(String[] args) {
         A3Q7 test = new A3Q7();
-        String testString = "zyxwvutsrqp\0onmlkihjgfAedcba";
+        String[] testString = {"aba", "ab"};
         testString = test.toAlphabeticOrder(testString);
-        System.out.println(testString);
+        for (String str: testString)
+        {
+            System.out.println(str);
+        }
     }
     
-    public String toAlphabeticOrder(String str)
+    public String[] toAlphabeticOrder(String[] words)
     {
-        char[] arr = str.toCharArray();
-        for (int i = 1; i < arr.length; i ++)
+        for (int i = 1; i < words.length; i ++)
         {
             int j = i-1;
-            char num = arr[i];
-            while (j >= 0 && arr[j] > num)
+            String temp = words[i];
+            while (j >= 0 && temp.compareToIgnoreCase(words[j]) < 0)
             {
-                arr[j+1] = arr[j];
-                j --;
+                words[j+1] = words[j];
+                j--;
             }
-            arr[j+1] = num;
+            words[j+1] = temp;
         }
-        return new String(arr);
+        return words;
     }
     
     
