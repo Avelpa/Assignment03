@@ -18,8 +18,8 @@ if end of array and not num, then num isn't in the array
 67 X
 72 G
 
-    Binary:
-Splits in halves, if length of array is odd then the checked number is 1 bigger than array size/2
+    Binary: 
+ check is (array size)/2
  if check is not num, splits array into two halves, excluding the checked number, and only continuing process on the half that contains the number (greater than or less than comparison since the arrays are all sorted)
  if check is num, stop
  if can't split anymore, num isn't in the array
@@ -28,9 +28,12 @@ G = num
 
 23, 27, 30, 34, 41, 51, 55, 57, 60, 67, 72, 78, 83, 96
                             X
-                            60, 67, 72, 78, 83, 96
-                                     G   
-
+                                60, 67, 72, 78, 83, 96
+                                            X
+                                60, 67, 72
+                                    X
+                                        72
+                                    
 b) Sequential:
 23 X
 27 X
