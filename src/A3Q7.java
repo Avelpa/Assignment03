@@ -15,7 +15,7 @@ public class A3Q7 {
      */
     public static void main(String[] args) {
         A3Q7 test = new A3Q7();
-        String[] testString = {"aba", "ab"};
+        String[] testString = {"abcdefg", "abcdeff"};
         testString = test.toAlphabeticOrder(testString);
         for (String str: testString)
         {

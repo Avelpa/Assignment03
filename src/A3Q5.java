@@ -16,7 +16,7 @@ public class A3Q5 {
     public static void main(String[] args) {
         
         A3Q5 test = new A3Q5();
-        int[] testArray = {1,2,3,4,5,6,7,8,9,10};
+        int[] testArray = {1,2,3,4,5,6,7,8,9,10, -5};
         test.sortDescending(testArray);
         for (Integer i: testArray)
         {

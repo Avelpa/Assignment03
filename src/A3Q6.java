@@ -16,7 +16,7 @@ public class A3Q6 {
     public static void main(String[] args) {
         A3Q6 test = new A3Q6();
         
-        int[] testArray = {10,9,8,7,6,5,4,3,2,12};
+        int[] testArray = {101,9,8,7,6,5,4,3,2,1,1,1,1,1,1,0};
         test.bucketSort(testArray);
         for (Integer i: testArray)
         {
