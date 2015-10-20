@@ -24,17 +24,24 @@ public class A3Q6 {
         }
     }
     
+    /**
+     * Sorts an array using the buck sort algorithm
+     * @param arr an array to be sorted, containing numbers between 0 and 100 inclusive, of length less than or equal to 101
+     */
     public void bucketSort(int[] arr)
     {
-        int[] nums = new int[101];
+        // for every value in the bucket, increment it by 1 for every ocurrence of that value in the passed in array
+        int[] bucket = new int[101];
         for (Integer i: arr)
         {
-            nums[i] ++;
+            bucket[i] ++;
         }
+        
+        // iterate through bucket and repopulate the array based on the number of times that value ocurrs in the bucket
         int index = 0;
-        for (int i = 0; i < nums.length; i ++)
+        for (int i = 0; i < bucket.length; i ++)
         {
-            for (int j = 1; j <= nums[i]; j ++)
+            for (int j = 1; j <= bucket[i]; j ++) // j = 1 because there's no point in adding a number which has never occured
             {
                 arr[index] = i;
                 index ++;

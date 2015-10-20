@@ -108,7 +108,9 @@ TRUE/FALSE is state of "sorted" after check
 20 [25 30] 40 60| 80 FALSE
 20 25 [30 40] 60| 80 FALSE
 20 25 30 [40 60]| 80 FALSE
-20 25 30 40| 60 80 TRUE
+20 25 30 40| 60 80 FALSE
+retrace the array, this time the check is TRUE, since nothing is swapped
+
 
 DONE SORTING : 20 25 30 40 60 80
 

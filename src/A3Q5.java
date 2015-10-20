@@ -34,13 +34,17 @@ public class A3Q5 {
     {
         for (int i = 1; i < arr.length; i ++)
         {
+            // arr[j] is the previous number
             int j = i-1;
-            int num = arr[i];
+            // num is the number we want to bring back 
+            int num = arr[i]; 
+            // while j is not out of bounds AND its less than the num, bring arr[j] forward
             while (j >= 0 && arr[j] < num)
             {
                 arr[j+1] = arr[j];
                 j --;
             }
+            // bring num to the first valid spot near the back
             arr[j+1] = num;
         }
     }
