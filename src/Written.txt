@@ -4,8 +4,11 @@ In an organized manner, trace the execution of Sequential Search and Binary Sear
 a) 72    b) 41     c) 50
 
 a) Sequential: 
-goes through each one... if not num then X, if yes then G, stop
-if end of array and not num, then num isn't in the array
+while the number is not found, checks each element in the array
+    if the end of the list is reached and the number is not found, the number is not in the array
+
+X = element is not searched number
+
 23 X
 27 X
 30 X
@@ -18,13 +21,13 @@ if end of array and not num, then num isn't in the array
 67 X
 72 G
 
-    Binary: 
- check is (array size)/2
- if check is not num, splits array into two halves, excluding the checked number, and only continuing process on the half that contains the number (greater than or less than comparison since the arrays are all sorted)
- if check is num, stop
- if can't split anymore, num isn't in the array
-X = not num
-G = num
+    Binary: array index starts at 0
+while the checked element is not the number being searched, splits the array into two.
+        since the initial array is sorted, only search the half which might contain the number (greater than or less than comparison)
+    if the length of the array to be checked is one, and that element is not the number being searched, the number is not in the array
+
+X = element is not the searched number
+G = element is the searched number
 
 23, 27, 30, 34, 41, 51, 55, 57, 60, 67, 72, 78, 83, 96
                             X
@@ -33,7 +36,7 @@ G = num
                                 60, 67, 72
                                     X
                                         72
-                                    
+                                        G
 b) Sequential:
 23 X
 27 X
@@ -75,8 +78,8 @@ NOT IN THE ARRAY
             X
                 41, 51, 55
                     X
-                        55
-                        X
+                41
+                X
                         NOT IN THE ARRAY
 
 A3Q2
@@ -85,26 +88,24 @@ order:  25  30  20  80  40  60
 
 limit = array length
 "sorted" = false
-while the sorting limit is NOT <= 1 AND not "sorted"
-sorted = true
-compare adjacent nums
-    if not in order, swap, sorted = false
-proceed onto next pair
-once limit reached
-    check state of "sorted"
-    decrease limit by one
-    repeat whole process
+while the sorting limit is NOT <= 1 AND NOT "sorted"
+    sorted = true
+    compare adjacent numbers
+        if not in order, swap --> sorted = false
+    proceed onto next pair
+    once limit reached
+        decrease limit by one
+
 | IS LIMIT
-TRUE/FALSE is state of "sorted" after check
+TRUE/FALSE is state of "sorted" after each comparison/swap
 
 25  30  20  80  40  60| FALSE
 [25 30] 20 80 40 60| FALSE
-25 [30 20] 80 40 60| FALSE
+25 [20 30] 80 40 60| FALSE
 25 20 [30 80] 40 60| FALSE
-25 20 30 [80 40] 60| FALSE
-25 20 30 40 [80 60]| FALSE
-25 20 30 40 60 80| FALSE
-[25 20] 30 40 60| 80 FALSE
+25 20 30 [40 80] 60| FALSE
+25 20 30 40 [60 80]| FALSE
+[20 25] 30 40 60| 80 FALSE
 20 [25 30] 40 60| 80 FALSE
 20 25 [30 40] 60| 80 FALSE
 20 25 30 [40 60]| 80 FALSE
@@ -119,12 +120,12 @@ What is the maximum number of comparisons that might be required to perform a bi
 list containing seven items? Explain the situation and include an example of such a list and 
 search.
 
-the max number is 3 comparisons, or log(7)/log(2) rounded up
+the max number is 3 comparisons, or log(7)/log(2) rounded up. This is because binary search halves the array each time.
 
 1 2 3 4 5 6 7 --- looking for 1
 
 1 2 3 4 5 6 7
-        X   -------- 1
+      X     -------- 1
 1 2 3
   X         ------- 2
 1           ------- 3
@@ -132,7 +133,7 @@ G
 
 A3Q4
 For large arrays, in the worst case, is selection sort faster than insertion sort? Explain.
-selection sort loops through each element for each element, thus  making it n*n/2... O(n^2)
-insertion sort loops through a decreasingly smaller number of elements, for each element, thus making it n*n/2... O(n^2) as well
-Therefore they are the same
 
+for a worst case, selection sort would loop through each element greater than an element X, for each such element X. Therefore, it's O(n^2).
+for a worst case, insertion sort would mimic the loop for the selection sort, also making it O(n^2)
+since the two have the same big O analysis, either one would work as well as the other for large arrays for the worst case.
